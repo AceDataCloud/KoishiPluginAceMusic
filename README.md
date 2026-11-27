@@ -2,6 +2,8 @@
 
 在机器人私聊中查询已有 ACE Music 任务的状态，选择其中一条音轨播放。查询不会发起音乐生成。音频的实际呈现方式取决于聊天适配器是否支持 Koishi 的音频消息。
 
+如需在 Koishi 中生成并发送音乐、图片和视频，可安装[十项服务的媒体插件](https://github.com/AceDataCloud/KoishiPluginAceMusic/tree/main/media)。
+
 ## 安装和配置
 
 1. 在 Koishi 控制台插件市场搜索 `@acedatacloud/koishi-plugin-acemusic`。也可在 Koishi 项目目录执行 `npm install @acedatacloud/koishi-plugin-acemusic`。

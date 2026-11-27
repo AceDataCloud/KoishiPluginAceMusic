@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    tags: ['v*']
+    tags: ['v*', 'media-v*']
 permissions:
   contents: read
 jobs:
@@ -20,6 +20,7 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npm pack --dry-run
+      - run: npm pack ./media --dry-run
       - name: Publish tagged version
         if: startsWith(github.ref, 'refs/tags/v')
         env:
@@ -43,3 +44,11 @@ jobs:
           node -e 'const fs=require("node:fs"); const [p]=require("./registry-pack.json"); if (p.integrity !== fs.readFileSync("registry-integrity", "utf8").trim()) process.exit(1); console.log(p.id, p.integrity, p.size);'
           tar -xzf "$(node -p 'require("./registry-pack.json")[0].filename')"
           cmp package/index.js "$GITHUB_WORKSPACE/index.js"
+      - name: Publish tagged media plugin
+        if: startsWith(github.ref, 'refs/tags/media-v')
+        working-directory: media
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          test "media-v$(node -p 'require("./package.json").version')" = "$GITHUB_REF_NAME"
+          npm publish --access public
