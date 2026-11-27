@@ -1,0 +1,58 @@
+{
+  "name": "@acedatacloud/koishi-plugin-acemusic",
+  "version": "1.0.0",
+  "description": "Retrieve an existing ACE Music task and play a selected track in your Koishi bot's private chat.",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "license": "MIT",
+  "author": "Ace Data Cloud",
+  "contributors": [
+    "Ace Data Cloud Dev <dev@acedata.cloud>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AceDataCloud/KoishiPluginAceMusic.git"
+  },
+  "homepage": "https://github.com/AceDataCloud/KoishiPluginAceMusic#readme",
+  "keywords": [
+    "koishi",
+    "plugin",
+    "music",
+    "audio",
+    "acemusic",
+    "bot"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "peerDependencies": {
+    "koishi": "^4.18.0"
+  },
+  "devDependencies": {
+    "@koishijs/plugin-database-memory": "3.7.0",
+    "@koishijs/plugin-mock": "2.6.6",
+    "koishi": "4.18.11"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "koishi": {
+    "description": {
+      "zh": "在机器人私聊中查询已有 ACE Music 任务状态，并播放指定音轨。",
+      "en": "Check an existing ACE Music task and play one of its tracks in a private bot conversation."
+    },
+    "service": {
+      "required": [
+        "database"
+      ]
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  }
+}
