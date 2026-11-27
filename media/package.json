@@ -1,0 +1,61 @@
+{
+  "name": "@acedatacloud/koishi-plugin-media",
+  "version": "1.0.0",
+  "description": "Create and retrieve audio, images and videos from ten Ace Data Cloud media services in private Koishi conversations.",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "services.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "license": "MIT",
+  "author": "Ace Data Cloud",
+  "contributors": [
+    "Ace Data Cloud Dev <dev@acedata.cloud>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AceDataCloud/KoishiPluginAceMusic.git",
+    "directory": "media"
+  },
+  "homepage": "https://github.com/AceDataCloud/KoishiPluginAceMusic/tree/main/media#readme",
+  "keywords": [
+    "koishi",
+    "plugin",
+    "music",
+    "image",
+    "video",
+    "suno",
+    "nano-banana",
+    "seedance",
+    "gpt-image",
+    "kling",
+    "veo",
+    "hailuo",
+    "seedream",
+    "flux",
+    "acemusic"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "peerDependencies": {
+    "koishi": "^4.18.0"
+  },
+  "koishi": {
+    "description": {
+      "zh": "在私聊中使用 Suno、Nano Banana、Seedance 等十项服务生成媒体，查询任务并发送音频、图片或视频。",
+      "en": "Create media with Suno, Nano Banana, Seedance and seven other services. Look up tasks and send audio, images or videos in private chat."
+    },
+    "service": {
+      "required": [
+        "database"
+      ]
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  }
+}
