@@ -1,6 +1,7 @@
 name: Test and publish Koishi plugin
 on:
   pull_request:
+  workflow_dispatch:
   push:
     branches: [main]
     tags: ['v*']
@@ -26,3 +27,19 @@ jobs:
         run: |
           test "v$(node -p 'require("./package.json").version')" = "$GITHUB_REF_NAME"
           npm publish --access public
+      - name: Verify the publicly downloadable package
+        if: startsWith(github.ref, 'refs/tags/v') || github.event_name == 'workflow_dispatch'
+        env:
+          NODE_AUTH_TOKEN: ''
+        run: |
+          PACKAGE=$(node -p 'const p = require("./package.json"); p.name + "@" + p.version')
+          for attempt in 1 2 3 4; do
+            npm view "$PACKAGE" dist.integrity --prefer-online --fetch-retries=0 > "$RUNNER_TEMP/registry-integrity" && break
+            sleep 10
+          done
+          test -s "$RUNNER_TEMP/registry-integrity"
+          cd "$RUNNER_TEMP"
+          npm pack "$PACKAGE" --prefer-online --json > registry-pack.json
+          node -e 'const fs=require("node:fs"); const [p]=require("./registry-pack.json"); if (p.integrity !== fs.readFileSync("registry-integrity", "utf8").trim()) process.exit(1); console.log(p.id, p.integrity, p.size);'
+          tar -xzf "$(node -p 'require("./registry-pack.json")[0].filename')"
+          cmp package/index.js "$GITHUB_WORKSPACE/index.js"
