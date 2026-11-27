@@ -2,6 +2,7 @@ const { h, Schema } = require('koishi')
 
 exports.name = 'acemusic'
 exports.inject = ['database']
+exports.usage = '<img src="https://cdn.acedata.cloud/acemusic-icon-52deddfc87b9.png" alt="" width="48" height="48">\n\n为当前服务创建 [Ace 应用令牌](https://platform.acedata.cloud/console/applications?utm_source=koishi&utm_medium=referral&utm_campaign=evergreen)，再将令牌填入下方的密钥字段。'
 exports.Config = Schema.object({
   token: Schema.string().role('secret').required()
     .description('ACE Music application token with task lookup access.'),

@@ -1,6 +1,6 @@
 {
   "name": "@acedatacloud/koishi-plugin-media",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create and retrieve audio, images and videos from ten Ace Data Cloud media services in private Koishi conversations.",
   "main": "index.js",
   "files": [
