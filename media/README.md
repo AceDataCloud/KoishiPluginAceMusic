@@ -1,10 +1,12 @@
 # Ace Data Cloud media for Koishi
 
+<img src="https://avatars.githubusercontent.com/u/156096448?s=192&amp;v=4" alt="" width="64" height="64">
+
 在机器人私聊中生成音乐、图片或视频，查询进度并发送选中的媒体。支持 Suno、ACE Music、Nano Banana、GPT Image、Seedream、FLUX、Seedance、Kling、Veo 和 Hailuo。
 
 ## 安装
 
-在 Koishi 插件市场搜索 `@acedatacloud/media`，或在 Koishi 项目目录执行 `npm install @acedatacloud/koishi-plugin-media`。启用该插件及 Koishi 数据库服务。在插件的密钥字段填入具备对应服务权限的 [Ace Data Cloud 应用令牌](https://platform.acedata.cloud/console/applications)。
+在 Koishi 插件市场搜索 `@acedatacloud/media`，或在 Koishi 项目目录执行 `npm install @acedatacloud/koishi-plugin-media`。启用该插件及 Koishi 数据库服务。在插件的密钥字段填入具备对应服务权限的 [Ace Data Cloud 应用令牌](https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen)。
 
 机器人使用配置的应用令牌提交和获取任务。命令仅向权限等级 3 或以上的私聊用户开放。已有 `acemusic` 命令可以继续与此插件一起使用。
 
@@ -26,4 +28,4 @@ Install `@acedatacloud/koishi-plugin-media` in a Koishi 4.18 project with its da
 
 Send `ace-media.make suno A cheerful song about a paper boat` to submit one generation request using the application's subscription. Copy the lookup command from the reply. A lookup returns the current state and available assets, including partial results. Append an asset number to send an audio, image or video message. The chat adapter determines playback and display support. When a submission times out, check your application history before submitting it again.
 
-[API documentation](https://docs.acedata.cloud) · [Support](https://github.com/AceDataCloud/KoishiPluginAceMusic/issues)
+[API documentation](https://docs.acedata.cloud/?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen) · [Support](https://github.com/AceDataCloud/KoishiPluginAceMusic/issues)

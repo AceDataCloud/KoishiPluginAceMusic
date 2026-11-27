@@ -1,6 +1,6 @@
 {
   "name": "@acedatacloud/koishi-plugin-acemusic",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Retrieve an existing ACE Music task and play a selected track in your Koishi bot's private chat.",
   "main": "index.js",
   "files": [
